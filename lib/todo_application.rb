@@ -1,4 +1,4 @@
-require_relative './todo'
+require_relative 'todo'
 
 class TodoApplicationError < StandardError; end
 
