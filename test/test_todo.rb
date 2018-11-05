@@ -68,9 +68,9 @@ class TestTodoList < Minitest::Test
   def test_saving_and_loading_a_list
     @todo_list.add_todo @test_todo
     @todo_list.complete_todo 1
-    @todo_list.save!(:test_list, 'test_list.dat')
+    @todo_list.save!(:test_list)
     new_list = Todo::List.new
-    new_list.load!(:test_list, 'test_list.dat')
+    new_list.load!(:test_list)
     assert_equal @todo_list.to_s, new_list.to_s
   ensure
     %x(rm -f test_list.dat)

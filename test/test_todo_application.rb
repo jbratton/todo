@@ -3,7 +3,7 @@ require 'todo_application'
 
 class TestTodoApplication < Minitest::Test
   def setup
-    @app = TodoApplication.new(:test_list, 'test_todolist.dat')
+    @app = TodoApplication.new(:test_list)
   end
 
   def teardown
