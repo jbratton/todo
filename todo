@@ -1,0 +1,59 @@
+#!/usr/local/bin/ruby
+
+require_relative './lib/todo_application'
+
+USAGE = <<~EOT
+  todo is an easy-to-use todo list application
+  
+  Usage:
+    todo <command>
+  where command is one of:
+    help\tShow this message
+    list\tShow the todo list
+    add <desc>\tAdd an item to the end of the todo list with the given description
+    delete <n>\tDelete item n from the todo list
+    complete <n>\tMark item n complete
+    uncomplete <n>\tMark item n not complete
+    clear\tDelete all items from the todo list
+EOT
+
+command = ARGV.shift
+
+begin
+  app = TodoApplication.new
+
+  case command
+    when 'help'
+      puts USAGE
+  
+    when 'list'
+      app.list
+  
+    when 'add'
+      description = ARGV.join(' ')
+      app.add description
+  
+    when 'delete'
+      position = ARGV.shift
+      app.delete position
+  
+    when 'complete'
+      position = ARGV.shift
+      app.complete position
+  
+    when 'uncomplete'
+      position = ARGV.shift
+      app.uncomplete position
+  
+    when 'clear'
+      app.clear
+  
+    else
+      puts USAGE
+      exit false
+  end
+
+rescue TodoApplicationError => e
+  puts e.message
+  exit false
+end
