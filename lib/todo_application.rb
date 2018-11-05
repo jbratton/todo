@@ -2,6 +2,9 @@ require_relative './todo'
 
 class TodoApplicationError < StandardError; end
 
+# A todo list application.
+# A simple interface to the Todo module that adds
+# some input validation and error handling.
 class TodoApplication
   def initialize(list_name = 'todolist')
     @list_name = list_name
@@ -60,6 +63,10 @@ class TodoApplication
     list
   end
 
+  # All commands using position have the same requirements:
+  # • the position must be parsable as an integer
+  # • the integer must refer to an existing list item
+  # those are enforced here.
   def check_position(p)
     position = Integer(p)
     if position < 1

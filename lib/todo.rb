@@ -1,6 +1,9 @@
 require 'pstore'
 
 module Todo
+  # A single todo list item.
+  # It has a description and a complete flag
+  # that can be set using the (un)complete! methods
   class Item
     attr_accessor :description
   
@@ -23,6 +26,9 @@ module Todo
     attr_accessor :complete
   end
   
+  # A list of items.
+  # It has an Array of Items and methods to
+  # interact with them.
   class List
     def initialize(items = [])
       @items = items
