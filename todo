@@ -6,15 +6,17 @@ USAGE = <<~EOT
   todo is an easy-to-use todo list application
   
   Usage:
+
     todo <command>
+
   where command is one of:
-    help\tShow this message
-    list\tShow the todo list
-    add <desc>\tAdd an item to the end of the todo list with the given description
-    delete <n>\tDelete item n from the todo list
-    complete <n>\tMark item n complete
-    uncomplete <n>\tMark item n not complete
-    clear\tDelete all items from the todo list
+    help            Show this message
+    list            Show the todo list
+    add <desc>      Add an item to the end of the todo list with the given description
+    delete <n>      Delete item n from the todo list
+    complete <n>    Mark item n complete
+    uncomplete <n>  Mark item n not complete
+    clear           Delete all items from the todo list
 EOT
 
 command = ARGV.shift
